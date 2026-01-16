@@ -2,6 +2,7 @@ package com.example.lab2;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> dataList;
     Button add_button;
     Button delete_button;
+    Button confirm_button;
     EditText input_text;
+    String selected_city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,21 +52,41 @@ public class MainActivity extends AppCompatActivity {
         input_text = findViewById(R.id.input_text);
         add_button = findViewById(R.id.add_button);
         delete_button = findViewById(R.id.delete_button);
+        confirm_button = findViewById(R.id.confirm_button);
+        input_text.setVisibility(View.GONE);
+        confirm_button.setVisibility(View.GONE);
 
         //System.out.print(input_text.getText().toString());
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataList.add(input_text.getText().toString());
-                cityAdapter.notifyDataSetChanged();
+                input_text.setVisibility(View.VISIBLE);
+                confirm_button.setVisibility(View.VISIBLE);
             }
         });
 
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataList.remove(input_text.getText().toString());
+                dataList.remove(selected_city);
                 cityAdapter.notifyDataSetChanged();
+            }
+        });
+
+        confirm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataList.add(input_text.getText().toString());
+                cityAdapter.notifyDataSetChanged();
+                input_text.setVisibility(View.GONE);
+                confirm_button.setVisibility(View.GONE);
+            }
+        });
+
+        cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selected_city = parent.getItemAtPosition(position).toString();
             }
         });
     }
