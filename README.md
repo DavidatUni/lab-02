@@ -2,16 +2,19 @@
 
 ## Student Details
 
-- **Full Name:** `<Enter name>`
-- **CCID:** `<Enter ccid>`
+- **Full Name:** `David Xiang`
+- **CCID:** `Dxiang1`
 
 ## References and Resources
 
-List any resources used here, or simply put `N/A` if not applicable.
+https://stackoverflow.com/questions/18405299/onitemclicklistener-using-arrayadapter-for-listview#:~:text=ListView%20lv%20=%20getListView();%20lv,position%20you%20get%20the%20item%20.
+
+https://www.geeksforgeeks.org/android/button-in-kotlin/
+
+https://developer.android.com/develop/ui/views/layout/constraint-layout
+
+https://www.geeksforgeeks.org/android/edittext-widget-in-android-using-java-with-examples/
 
 ## Verbal Collaboration
 
-| Student Name | CCID      |
-| ------------ | --------- |
-| `student`    | `student` |
-| `<Add more>` | `<CCID>`  |
+N/A
